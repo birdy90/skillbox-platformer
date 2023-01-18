@@ -122,7 +122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedModifier: 1
-  JumpModifier: 2.8
+  JumpModifier: 14
+  JumpCooldown: 0.2
   GroundLayer:
     serializedVersion: 2
     m_Bits: 128

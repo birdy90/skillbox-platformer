@@ -9,4 +9,6 @@ public static class Constants
     public static string AnimationPlayerJump = "Jump";
     public static string AnimationPlayerMove = "Velocity";
     public static string AnimationPlayerAttack = "Attack";
+
+    public static string RespawnActivationTrigger = "Activate";
 }
