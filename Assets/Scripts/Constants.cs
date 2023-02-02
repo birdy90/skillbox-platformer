@@ -11,4 +11,6 @@ public static class Constants
     public static string AnimationPlayerAttack = "Attack";
 
     public static string RespawnActivationTrigger = "Activate";
+
+    public static string PlayerTag = "Player";
 }

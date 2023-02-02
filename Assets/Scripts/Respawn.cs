@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -6,6 +5,7 @@ using UnityEngine.Rendering.Universal;
 public class Respawn : MonoBehaviour
 {
     public Light2D LightSource;
+    public GameObject FireParticlesObject;
     
     private bool _activated;
     private Animator _animator;
@@ -23,7 +23,8 @@ public class Respawn : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (_activated) return;
-        
+
+        FireParticlesObject.SetActive(true);
         _activated = true;
         _animator.SetTrigger(Constants.RespawnActivationTrigger);
         StartCoroutine(nameof(UpdateLightSource));
@@ -35,7 +36,6 @@ public class Respawn : MonoBehaviour
 
         while (Time.time - startTime < 1f)
         {
-            Debug.Log(Time.time - startTime);
             LightSource.pointLightInnerRadius = Mathf.Lerp(LightSource.pointLightInnerRadius, 0f, _activationDuration);
             LightSource.pointLightOuterRadius = Mathf.Lerp(LightSource.pointLightOuterRadius, 0.75f, _activationDuration);
             LightSource.color = Color.Lerp(LightSource.color, Color.red, _activationDuration);

@@ -4,6 +4,9 @@ public class InputController : MonoBehaviour
 {
     public PlayerController PlayerController;
 
+    /// <summary>
+    /// Get inputs and call actions
+    /// </summary>
     void FixedUpdate()
     {
         float horizontalInput = Input.GetAxis(Constants.HorizontalAxis);
