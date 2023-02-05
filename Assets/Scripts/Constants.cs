@@ -13,4 +13,9 @@ public static class Constants
     public static string RespawnActivationTrigger = "Activate";
 
     public static string PlayerTag = "Player";
+    
+    public static string WallLayer = "Walls";
+    public static string EnemyLayer = "Enemy";
+
+    public static float SpriteSize = 0.16f;
 }

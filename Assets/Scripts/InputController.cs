@@ -7,7 +7,7 @@ public class InputController : MonoBehaviour
     /// <summary>
     /// Get inputs and call actions
     /// </summary>
-    void FixedUpdate()
+    void Update()
     {
         float horizontalInput = Input.GetAxis(Constants.HorizontalAxis);
         
@@ -17,9 +17,14 @@ public class InputController : MonoBehaviour
         
         PlayerController.Move(horizontalInput);
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             PlayerController.Attack();
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            PlayerController.Fire();
         }
     }
 }

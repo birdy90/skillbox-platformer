@@ -130,6 +130,7 @@ MonoBehaviour:
   GroundLayer:
     serializedVersion: 2
     m_Bits: 128
+  FireballPrefab: {fileID: 3329183247072209304, guid: 187f912da0bfe444096726b12fda727a, type: 3}
 --- !u!114 &7221092226360102871
 MonoBehaviour:
   m_ObjectHideFlags: 0

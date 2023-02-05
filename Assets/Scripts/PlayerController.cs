@@ -7,13 +7,17 @@ public class PlayerController : MonoBehaviour
     public float JumpModifier = 1f;
     public float JumpCooldown = 0.2f;
     public float InAirCooldown = 0.1f;
+    [SerializeField]private float FiringCooldown = 0.25f;
     public LayerMask GroundLayer;
+    public Fireball FireballPrefab;
     
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody;
     private bool _isGrounded;
     private bool _jumpCooldownPassed = true;
+
+    private bool _canFire = true;
 
     private Transform _parentTransform;
     private Rigidbody2D _parentRigidbody;   
@@ -126,6 +130,24 @@ public class PlayerController : MonoBehaviour
 
         return newIsGrounded;
     }
+
+    public void Fire()
+    {
+        if (!_canFire) return;
+        
+        _canFire = false;
+        float fireballOffset = Constants.SpriteSize / 4;
+        int direction = _spriteRenderer.flipX ? -1 : 1;
+        Vector3 currentPosition = transform.position;
+
+        Vector3 spawnPosition = new Vector3(currentPosition.x + direction * fireballOffset,
+            currentPosition.y + Constants.SpriteSize / 2, 0);
+        
+        Fireball fireball = Instantiate(FireballPrefab, spawnPosition, Quaternion.identity);
+        fireball.SetDirection(direction);
+
+        StartCoroutine(nameof(PerformFiringCooldown));
+    }
     
     public void Attack()
     {
@@ -150,5 +172,11 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(InAirCooldown);
         _isGrounded = false;
+    }
+    
+    private IEnumerator PerformFiringCooldown()
+    {
+        yield return new WaitForSeconds(FiringCooldown);
+        _canFire = true;
     }
 }
