@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private float FiringCooldown = 0.25f;
     public LayerMask GroundLayer;
     public Fireball FireballPrefab;
+    public ParticleSystem DustParticles;
+    public ParticleSystem DustBurstParticles;
     
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
@@ -41,6 +43,7 @@ public class PlayerController : MonoBehaviour
         {
             _jumpCooldownPassed = false;
             StartCoroutine(nameof(PerformJumpCooldown));
+            DustBurstParticles.Play();
         }
         
         _isGrounded = newGroundedState;
@@ -50,9 +53,11 @@ public class PlayerController : MonoBehaviour
 
     public void Move(float input)
     {
+        DustParticles.gameObject.SetActive(input != 0 && _isGrounded);
+        
         if (input == 0) return;
         CheckParent();
-        
+
         Vector2 currentVeclocity = _rigidbody.velocity;
         Vector2 parentVelocity = _parentRigidbody ? _parentRigidbody.velocity : Vector2.zero;
         
