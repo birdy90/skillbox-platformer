@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5446126733834132818}
   - component: {fileID: 5446126733834132783}
   - component: {fileID: 4597416393443671226}
+  - component: {fileID: 2202814570655958028}
+  - component: {fileID: 2527108631553496156}
   m_Layer: 9
   m_Name: Bat
   m_TagString: Untagged
@@ -137,6 +139,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageAmount: 3
+--- !u!114 &2202814570655958028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5446126733834132816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02081e72449441aca2b6ccd0e295cdfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 4
+  DamagingLayers:
+    serializedVersion: 2
+    m_Bits: 1024
+  HealthBar: {fileID: 0}
+  HealthText: {fileID: 0}
+  _currentHealth: 4
+--- !u!114 &2527108631553496156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5446126733834132816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb3c02089d0c43278aa6f2d6e55eb839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DieParticles: {fileID: 6103399451196590564, guid: f8e297897a6db27469c76c9f474ff5c9, type: 3}
 --- !u!1 &8479722192151727531
 GameObject:
   m_ObjectHideFlags: 0

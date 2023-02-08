@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public Fireball FireballPrefab;
     public ParticleSystem DustParticles;
     public ParticleSystem DustBurstParticles;
+    public bool IsDead;
     
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
@@ -36,6 +37,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void Update()
     {
+        if (IsDead) return;
+        
         bool newGroundedState = CheckGroundedState();
 
         // if player is just landed, then start cooldown
@@ -53,6 +56,8 @@ public class PlayerController : MonoBehaviour
 
     public void Move(float input)
     {
+        if (IsDead) return;
+        
         DustParticles.gameObject.SetActive(input != 0 && _isGrounded);
         
         if (input == 0) return;
@@ -100,6 +105,8 @@ public class PlayerController : MonoBehaviour
     /// <param name="input"></param>
     public void Jump(float input)
     {
+        if (IsDead) return;
+        
         if (input > 0 && _isGrounded && _jumpCooldownPassed)
         {
             _rigidbody.AddForce(JumpModifier * Vector2.up, ForceMode2D.Impulse);
@@ -138,7 +145,7 @@ public class PlayerController : MonoBehaviour
 
     public void Fire()
     {
-        if (!_canFire) return;
+        if (IsDead || !_canFire) return;
         
         _canFire = false;
         float fireballOffset = Constants.SpriteSize / 4;
@@ -156,6 +163,8 @@ public class PlayerController : MonoBehaviour
     
     public void Attack()
     {
+        if (IsDead) return;
+        
         _animator.SetTrigger(Constants.AnimationPlayerAttack);
     }
 

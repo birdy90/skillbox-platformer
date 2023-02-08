@@ -7,18 +7,19 @@ public class ExplosionController : MonoBehaviour
     [SerializeField] private Transform ExplosionPoint;
     [SerializeField] private GameObject ExposionPrefab;
     [SerializeField] private float ExplosionDuration = 0.1f;
+    [SerializeField] private LayerMask CollisionMask;
 
     private GameObject _bombInstance;
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (_bombInstance) return;
-        
-        if (col.gameObject.TryGetComponent(typeof(InputController), out Component component))
+        if (_bombInstance || (CollisionMask & (1 << col.gameObject.layer)) == 0)
         {
-            _bombInstance = Instantiate(ExposionPrefab, ExplosionPoint);
-            StartCoroutine(nameof(SelfDestroy));
+            return;
         }
+
+        _bombInstance = Instantiate(ExposionPrefab, ExplosionPoint);
+        StartCoroutine(nameof(SelfDestroy));
     }
 
     private IEnumerator SelfDestroy()
