@@ -5369,7 +5369,6 @@ MonoBehaviour:
     m_Bits: 512
   HealthBar: {fileID: 5736436862166775252}
   HealthText: {fileID: 7089529182652888385}
-  _currentHealth: 0
 --- !u!114 &815701658417587540
 MonoBehaviour:
   m_ObjectHideFlags: 0

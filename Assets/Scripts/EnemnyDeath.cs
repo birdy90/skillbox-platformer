@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class EnemnyDieController : MonoBehaviour, IDieController
+public class EnemnyDeath : MonoBehaviour, IDieController
 {
     [SerializeField] private ParticleSystem DieParticles;
     

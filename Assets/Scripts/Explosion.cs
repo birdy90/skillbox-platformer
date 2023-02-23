@@ -1,8 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ExplosionController : MonoBehaviour
+public class Explosion : MonoBehaviour
 {
     [SerializeField] private Transform ExplosionPoint;
     [SerializeField] private GameObject ExposionPrefab;
