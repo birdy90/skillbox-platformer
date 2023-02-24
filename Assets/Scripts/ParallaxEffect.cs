@@ -60,10 +60,11 @@ public class ParallaxEffect : MonoBehaviour
         for (int i = 0; i < _renderedLayers.Count; i++)
         {
             Transform layer = _renderedLayers[i];
-            float layerMultiplier = -1f / (_renderedLayers.Count - i + 1);
-            Vector3 layerOffset = layerMultiplier * playerOffset;
+            float layerMultiplierX = -1f / (_renderedLayers.Count - i + 1);
+            float layerMultiplierY = layerMultiplierX / 5f;
+            Vector3 layerOffset = new Vector3(playerOffset.x * layerMultiplierX, playerOffset.y * layerMultiplierY, 0);
             layer.position = layerOffset;
-            layer.gameObject.name = $"Layer {i} {layerMultiplier:F3}";
+            layer.gameObject.name = $"Layer {i}";
         }
     }
 }
