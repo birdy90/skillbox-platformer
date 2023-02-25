@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 5446126733834132781}
   - component: {fileID: 5446126733834132818}
   - component: {fileID: 5446126733834132783}
+  - component: {fileID: 7322266629605228301}
   - component: {fileID: 4597416393443671226}
   - component: {fileID: 2202814570655958028}
   - component: {fileID: 2527108631553496156}
+  - component: {fileID: 1394498471478841648}
   m_Layer: 9
   m_Name: Bat
   m_TagString: Untagged
@@ -126,6 +128,27 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.08}
   serializedVersion: 2
   m_Radius: 0.06
+--- !u!50 &7322266629605228301
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5446126733834132816}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &4597416393443671226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +180,6 @@ MonoBehaviour:
     m_Bits: 1024
   HealthBar: {fileID: 0}
   HealthText: {fileID: 0}
-  _currentHealth: 4
 --- !u!114 &2527108631553496156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,6 +193,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DieParticles: {fileID: 6103399451196590564, guid: f8e297897a6db27469c76c9f474ff5c9, type: 3}
+--- !u!114 &1394498471478841648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5446126733834132816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454d60a7d518c5e4d9fb675b8eb9a6cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaypointOne: {fileID: 0}
+  WaypointTwo: {fileID: 0}
+  BatRigidBody: {fileID: 7322266629605228301}
 --- !u!1 &8479722192151727531
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +257,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.606
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.6
+  m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000b56061fae9445dbeddc2148643e5070c9bec8b2c837883fa
